@@ -48,7 +48,6 @@ export const getPosts = async (req, model) => {
 export const getPost = async (req, model) => {
     try {
         const { id: _id } = req.params;
-        console.log("id",_id);
         
         const fetchPost = await modelService.getOneById(db[model], { _id }, req);
         if (fetchPost) {
@@ -71,8 +70,6 @@ export const getPost = async (req, model) => {
 export const getPostsBySearch = async (req, model) => {
     try {
         const { searchQuery, tags } = req.query;
-        console.log("searchQuery",searchQuery);
-        console.log("tags",tags);
         
         const getPosts = await modelService.getAll(db[model], {
             $or: [
